@@ -1,9 +1,11 @@
 import React from "react";
 
+import './SpecialButton.scss'
+
 const SpecialButton = (props) => {
   return (
     <>
-      <button>{props.special}</button>
+      <button className='special-button'>{props.special}</button>
     </>
   );
 };

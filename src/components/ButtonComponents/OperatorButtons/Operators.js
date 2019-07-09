@@ -11,7 +11,7 @@ const Operators = () => {
   const [operatorsList, setOperator] = useState(operators)
 
   return (
-    <div>
+    <div className='operators'>
       {operatorsList.map(operator => (
         <OperatorButton operator={operator} />
       ))}

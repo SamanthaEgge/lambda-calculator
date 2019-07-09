@@ -1,9 +1,11 @@
 import React from "react";
 
+import './OperatorButton.scss'
+
 const OperatorButton = (props) => {
   return (
     <>
-      <button>{props.operator.char}</button>
+      <button className='operator-button'>{props.operator.char}</button>
     </>
   );
 };

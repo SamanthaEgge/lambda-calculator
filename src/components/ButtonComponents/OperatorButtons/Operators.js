@@ -8,7 +8,7 @@ import OperatorButton from './OperatorButton.js'
 
 const Operators = () => {
   // STEP 2 - add the imported data to state
-  const [operators, setOperator] = useState(operators)
+  const [operatorsList, setOperator] = useState(operators)
 
   return (
     <div>

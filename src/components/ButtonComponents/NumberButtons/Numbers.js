@@ -8,7 +8,7 @@ import NumberButton from './NumberButton.js'
 
 const Numbers = () => {
   // STEP 2 - add the imported data to state
-  const [numbers, setNumber] = useState(numbers)
+  const [numbersList, setNumber] = useState(numbers)
 
   return (
     <div>

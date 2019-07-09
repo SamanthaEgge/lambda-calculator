@@ -2,8 +2,8 @@ import React from "react";
 
 import './Display.scss'
 
-const Display = () => {
-  return <div className='display'><p className='display-text'>0</p></div>;
+const Display = (props) => {
+  return <div className='display'><p className='display-text'>{props.calcDisplay}</p></div>;
 };
 
 export default Display;

@@ -7,7 +7,7 @@ import SpecialButton from './SpecialButton.js'
 
 //Import your array data to from the provided data file
 
-const Specials = () => {
+const Specials = (props) => {
   // STEP 2 - add the imported data to state
   const [specialsList, setSpecials] = useState(specials)
   console.log('specials', specials)
@@ -15,7 +15,7 @@ const Specials = () => {
   return (
     <div className='specials'>
       {specialsList.map(special => (
-        <SpecialButton special={special} />
+        <SpecialButton special={special} clearDisplay={props.clearDisplay} />
       ))}
     </div>
   );

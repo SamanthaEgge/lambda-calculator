@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 //import any components needed
 import { operators } from '../../../data.js'
+import './OperatorButton.scss'
 import OperatorButton from './OperatorButton.js'
 
 //Import your array data to from the provided data file

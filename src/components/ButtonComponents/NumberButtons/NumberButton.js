@@ -5,7 +5,7 @@ import './NumberButton.scss'
 const NumberButton = (props) => {
   return (
     <>
-      <button className='number-button'>{props.number}</button>
+      <button className='number-button' onClick={() => {props.selectNumber(props.number)}}>{props.number}</button>
     </>
   );
 };

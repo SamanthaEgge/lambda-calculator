@@ -14,7 +14,11 @@ const Numbers = (props) => {
   return (
     <div className='numbers'>
       {numbersList.map(number => (
-        <NumberButton number={number} selectNumber={props.selectNumber} />
+        <NumberButton 
+        number={number} 
+        createFirstNum={props.createFirstNum}
+        createSecondNum={props.createSecondNum}
+        chosenOperator={props.chosenOperator}/>
       ))}
     </div>
   );

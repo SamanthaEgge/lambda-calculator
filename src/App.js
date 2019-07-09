@@ -16,30 +16,55 @@ function App() {
   // Your functions should accept a parameter of the the item data being displayed to the DOM (ie - should recieve 5 if the user clicks on
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
-  const [ calcDisplay, setCalculator ] = useState(0)
 
-  const selectNumber = (number) => {
-    setCalculator(number)
+  // THIS WORKS TO DISPLAY TO CALCULATOR
+  // const [ calcDisplay, setCalculator ] = useState(0)
+
+  const [firstNum, setFirstNum] = useState(0)
+  const [chosenOperator, selectOperator] = useState(null)
+  const [secondNum, setSecondNum] = useState(0)
+  const [totalResult, setTotalResult] = useState(0)
+
+  const createFirstNum = (number) => {
+    setFirstNum(`${firstNum}${number}`)
+  }
+  
+  const createSecondNum = (number) => {
+    setSecondNum(`${secondNum}${number}`)
   }
 
-  const clearDisplay = () => {
-    setCalculator(0)
+  // const clearDisplay = () => {
+  //   setCalculator(0)
+  // }
+
+  const getTotal = () => {
+    setTotalResult({firstNum} + {chosenOperator} + {secondNum})
   }
+
+  console.log('firstNum: ', firstNum)
 
   return (
     <div className="container">
       <Logo />
       <div className="App">
         <div className='display-container'>
-          <Display calcDisplay={calcDisplay} />
+          <Display 
+          firstNum={firstNum}
+          secondNum={secondNum}
+          chosenOperator={chosenOperator}/>
         </div>
         <div className='calculator-container'>
           <div className='left-calc-container'>
-            <Specials clearDisplay={clearDisplay} />
-            <Numbers selectNumber={selectNumber} />
+            <Specials />
+            <Numbers 
+            createFirstNum={createFirstNum} 
+            createSecondNum={createSecondNum}
+            chosenOperator={chosenOperator}
+            />
           </div>
           <div className='right-calc-container'>
-            <Operators />
+            <Operators
+            selectOperator={selectOperator} />
           </div>
         </div>
       </div>

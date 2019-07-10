@@ -8,9 +8,9 @@ const NumberButton = (props) => {
       <button 
       className='number-button'
       onClick={() => 
-      {props.chosenOperator === null ? 
-      props.createFirstNum(props.number) : 
-      props.createSecondNum(props.number)}}>{props.number}</button>
+      {props.chosenOperator !== null ? 
+      props.createSecondNum(props.number) : 
+      props.createFirstNum(props.number)}}>{props.number}</button>
     </>
   );
 };

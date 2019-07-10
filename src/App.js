@@ -23,7 +23,7 @@ function App() {
   const [firstNum, setFirstNum] = useState(0)
   const [chosenOperator, selectOperator] = useState(null)
   const [secondNum, setSecondNum] = useState(0)
-  const [totalResult, setTotalResult] = useState(0)
+  const [totalResult, setTotalResult] = useState(null)
 
   const createFirstNum = (number) => {
     setFirstNum(`${firstNum}${number}`)
@@ -33,13 +33,16 @@ function App() {
     setSecondNum(`${secondNum}${number}`)
   }
 
-  // const clearDisplay = () => {
-  //   setCalculator(0)
-  // }
-
   const getTotal = () => {
-    setTotalResult({firstNum} + {chosenOperator} + {secondNum})
+    setTotalResult(eval(`${firstNum}${chosenOperator}${secondNum}`))
   }
+
+  // const clearDisplay = () => {
+  //   setFirstNum(0),
+  //   selectOperator(null),
+  //   setSecondNum(0),
+  //   setTotalResult(null)
+  // }
 
   console.log('firstNum: ', firstNum)
 
@@ -51,6 +54,7 @@ function App() {
           <Display 
           firstNum={firstNum}
           secondNum={secondNum}
+          totalResult={totalResult}
           chosenOperator={chosenOperator}/>
         </div>
         <div className='calculator-container'>

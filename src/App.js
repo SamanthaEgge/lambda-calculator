@@ -37,12 +37,12 @@ function App() {
     setTotalResult(eval(`${firstNum}${chosenOperator}${secondNum}`))
   }
 
-  // const clearDisplay = () => {
-  //   setFirstNum(0),
-  //   selectOperator(null),
-  //   setSecondNum(0),
-  //   setTotalResult(null)
-  // }
+  const clearDisplay = () => {
+    setFirstNum(0);
+    selectOperator(null);
+    setSecondNum(0);
+    setTotalResult(null)
+  }
 
   console.log('firstNum: ', firstNum)
 
@@ -59,7 +59,7 @@ function App() {
         </div>
         <div className='calculator-container'>
           <div className='left-calc-container'>
-            <Specials />
+            <Specials clearDisplay={clearDisplay}/>
             <Numbers 
             createFirstNum={createFirstNum} 
             createSecondNum={createSecondNum}

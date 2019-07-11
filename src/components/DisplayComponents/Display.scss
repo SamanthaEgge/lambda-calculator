@@ -1,0 +1,14 @@
+.display {
+    width: 100%;
+    height: 85px;
+    background-color: darkgray;
+    border-radius: 40px;
+
+    .display-text {
+        margin: 0px;
+        padding-right: 20px;
+        text-align: right;
+        font-size: 64px;
+        color: white;
+    }
+}

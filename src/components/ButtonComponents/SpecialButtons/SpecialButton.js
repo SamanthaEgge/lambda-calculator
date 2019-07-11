@@ -1,9 +1,15 @@
 import React from "react";
 
-const SpecialButton = () => {
+import './SpecialButton.scss'
+
+const SpecialButton = (props) => {
   return (
-    <>
-      {/* Display a button element rendering the data being passed down from the parent container on props */}
+    <>{props.special === 'C' ? 
+      <button className='special-button' onClick={props.clearDisplay}>{props.special}</button> :
+      <button className='special-button'>{props.special}</button>
+    }
     </>
   );
 };
+
+export default SpecialButton

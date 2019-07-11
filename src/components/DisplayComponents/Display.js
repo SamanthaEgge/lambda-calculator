@@ -1,5 +1,13 @@
 import React from "react";
 
-const Display = () => {
-  return <div>{/* Display any props data here */}</div>;
+import './Display.scss'
+
+const Display = (props) => {
+  return <div className='display'><p className='display-text'>
+    {props.totalResult !== null ? props.totalResult : 
+      (props.chosenOperator === null ? 
+      props.firstNum : props.secondNum)}
+  </p></div>;
 };
+
+export default Display;

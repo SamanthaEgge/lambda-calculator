@@ -1,0 +1,13 @@
+.numbers {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    .number-button {
+        width: 23%;
+        height: 80px;
+        margin: 10px;
+        border-radius: 50%;
+    }
+}

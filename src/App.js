@@ -1,10 +1,14 @@
-import React from "react";
-import "./App.css";
+import React, { useState } from "react";
+import "./App.scss";
 // STEP 4 - import the button and display components
 // Don't forget to import any extra css/scss files you build into the correct component
 
 // Logo has already been provided for you. Do the same for the remaining components
 import Logo from "./components/DisplayComponents/Logo";
+import Display from './components/DisplayComponents/Display.js';
+import Specials from './components/ButtonComponents/SpecialButtons/Specials'
+import Operators from './components/ButtonComponents/OperatorButtons/Operators'
+import Numbers from './components/ButtonComponents/NumberButtons/Numbers'
 
 function App() {
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
@@ -13,11 +17,60 @@ function App() {
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
+  // THIS WORKS TO DISPLAY TO CALCULATOR
+  // const [ calcDisplay, setCalculator ] = useState(0)
+
+  const [firstNum, setFirstNum] = useState(0)
+  const [chosenOperator, selectOperator] = useState(null)
+  const [secondNum, setSecondNum] = useState(0)
+  const [totalResult, setTotalResult] = useState(null)
+
+  const createFirstNum = (number) => {
+    setFirstNum(`${firstNum}${number}`)
+  }
+  
+  const createSecondNum = (number) => {
+    setSecondNum(`${secondNum}${number}`)
+  }
+
+  const getTotal = () => {
+    setTotalResult(eval(`${firstNum}${chosenOperator}${secondNum}`))
+  }
+
+  const clearDisplay = () => {
+    setFirstNum(0);
+    selectOperator(null);
+    setSecondNum(0);
+    setTotalResult(null)
+  }
+
+  console.log('firstNum: ', firstNum)
+
   return (
     <div className="container">
       <Logo />
       <div className="App">
-        {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
+        <div className='display-container'>
+          <Display 
+          firstNum={firstNum}
+          secondNum={secondNum}
+          totalResult={totalResult}
+          chosenOperator={chosenOperator}/>
+        </div>
+        <div className='calculator-container'>
+          <div className='left-calc-container'>
+            <Specials clearDisplay={clearDisplay}/>
+            <Numbers 
+            createFirstNum={createFirstNum} 
+            createSecondNum={createSecondNum}
+            chosenOperator={chosenOperator}
+            />
+          </div>
+          <div className='right-calc-container'>
+            <Operators
+            selectOperator={selectOperator} />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,11 @@
+.specials {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+    .special-button {
+        width: 23%;
+        height: 80px;
+        border-radius: 50%;
+    }
+}
